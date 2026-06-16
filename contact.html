@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — BenefitsWiseUSA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0D2B4E; --navy-mid: #1A4270; --blue: #2563A8;
+    --gold: #C9861A; --gold-light: #F5A623; --cream: #FAFAF7;
+    --white: #FFFFFF; --text: #1A1A2E; --text-mid: #374151;
+    --text-muted: #6B7280; --border: #E4EAF2; --sky: #EBF4FF;
+    --green: #1A7A4A; --green-light: #ECFAF3;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --radius: 10px; --radius-lg: 16px;
+  }
+  body { font-family: var(--font-body); color: var(--text); background: var(--cream); line-height: 1.6; font-size: 15px; }
+  nav { background: var(--navy); padding: 0 2rem; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--gold); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 60px; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-flag { width: 36px; height: 24px; background: linear-gradient(to bottom, #B22234 0%, #B22234 30%, #fff 30%, #fff 40%, #B22234 40%, #B22234 55%, #fff 55%, #fff 65%, #B22234 65%, #B22234 80%, #fff 80%, #fff 90%, #B22234 90%, #B22234 100%); border-radius: 3px; border: 1px solid rgba(255,255,255,0.3); position: relative; overflow: hidden; }
+  .logo-flag::before { content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 54%; background: #3C3B6E; }
+  .logo-text { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: #fff; }
+  .logo-text span { color: var(--gold-light); }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; padding: 0 14px; height: 60px; display: flex; align-items: center; transition: color 0.15s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; font-weight: 500 !important; border-radius: var(--radius); padding: 8px 16px !important; height: auto !important; }
+
+  .page-header { background: var(--navy); padding: 56px 2rem; }
+  .page-header-inner { max-width: 1000px; margin: 0 auto; }
+  .page-header p { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; }
+  .page-header h1 { font-family: var(--font-display); font-size: 2.2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .page-header .sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 12px; max-width: 520px; line-height: 1.7; }
+
+  .section { padding: 64px 2rem 80px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: start; }
+
+  /* FORM */
+  .contact-form { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px; }
+  .contact-form h2 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+  .form-group label { font-size: 12.5px; font-weight: 500; color: var(--text-mid); }
+  .form-group input,
+  .form-group select,
+  .form-group textarea { padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 14px; color: var(--text); background: var(--cream); font-family: var(--font-body); transition: border-color 0.15s; outline: none; resize: vertical; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--blue); background: var(--white); }
+  .form-group textarea { min-height: 130px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .btn-submit { background: var(--gold); color: var(--navy); font-weight: 500; font-size: 14.5px; padding: 13px 28px; border-radius: var(--radius); border: none; cursor: pointer; width: 100%; font-family: var(--font-body); transition: background 0.15s; margin-top: 4px; }
+  .btn-submit:hover { background: var(--gold-light); }
+  .form-note { font-size: 11.5px; color: var(--text-muted); margin-top: 12px; text-align: center; }
+
+  /* SIDEBAR */
+  .contact-sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .info-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+  .info-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .info-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; }
+  .info-card a { color: var(--blue); text-decoration: none; }
+  .info-card a:hover { text-decoration: underline; }
+
+  .important-card { background: var(--sky); border: 1px solid #c5d5e8; border-radius: var(--radius-lg); padding: 24px; }
+  .important-card h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .important-card p { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; }
+  .important-card ul { margin-left: 16px; }
+  .important-card ul li { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 4px; }
+  .important-card ul li a { color: var(--blue); text-decoration: none; }
+
+  /* SUCCESS */
+  .success-msg { display: none; background: var(--green-light); border: 1px solid #a7d9be; border-radius: var(--radius); padding: 16px 20px; font-size: 14px; color: var(--green); margin-top: 14px; text-align: center; }
+
+  footer { background: var(--navy); padding: 40px 2rem 24px; color: rgba(255,255,255,0.6); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 240px repeat(3, 1fr); gap: 48px; margin-bottom: 32px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 14px; color: rgba(255,255,255,0.5); }
+  .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.9); font-weight: 500; margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 8px; }
+  .footer-col a:hover { color: rgba(255,255,255,0.9); }
+  .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: rgba(255,255,255,0.35); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 760px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-flag"></div>
+      <span class="logo-text">Benefits<span>Wise</span>USA</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#benefits">Benefits</a></li>
+      <li><a href="index.html#states">By State</a></li>
+      <li><a href="index.html#blog">Guides</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#checker" class="nav-cta">Check Eligibility</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p>Get in touch</p>
+    <h1>Contact Us</h1>
+    <p class="sub">Have a question, spotted an error, or want to suggest a topic? We'd love to hear from you.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="contact-grid">
+
+      <div class="contact-form">
+        <h2>Send us a message</h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" placeholder="Smith">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" id="email" placeholder="jane@email.com">
+        </div>
+        <div class="form-group">
+          <label for="subject">What is this about?</label>
+          <select id="subject">
+            <option value="">Select a topic…</option>
+            <option>I found an error on your site</option>
+            <option>I have a question about a benefit program</option>
+            <option>I want to suggest a new article topic</option>
+            <option>Partnership or advertising inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your message</label>
+          <textarea id="message" placeholder="Tell us what's on your mind…"></textarea>
+        </div>
+        <button class="btn-submit" onclick="handleSubmit()">Send Message</button>
+        <div class="success-msg" id="successMsg">
+          ✅ Thank you! We've received your message and will get back to you within 2–3 business days.
+        </div>
+        <p class="form-note">🔒 We never share your information with third parties.</p>
+      </div>
+
+      <div class="contact-sidebar">
+
+        <div class="info-card">
+          <h3>📬 Response time</h3>
+          <p>We typically respond to all messages within <strong>2–3 business days</strong>. For urgent benefit questions, we recommend contacting your state agency directly for the fastest help.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>✏️ Found an error?</h3>
+          <p>Accuracy is our top priority. If you spotted outdated or incorrect information on any of our pages, please let us know — include the page URL and what you believe needs correcting. We will review and update it promptly.</p>
+        </div>
+
+        <div class="important-card">
+          <h3>⚠️ We cannot help with applications</h3>
+          <p>We are an informational website only. We cannot:</p>
+          <ul>
+            <li>Apply for benefits on your behalf</li>
+            <li>Check the status of your application</li>
+            <li>Make eligibility determinations</li>
+            <li>Provide legal or financial advice</li>
+          </ul>
+          <p style="margin-top:12px;">For direct help, contact the official agencies:</p>
+          <ul>
+            <li><a href="https://www.ssa.gov" target="_blank">SSA.gov</a> — Social Security</li>
+            <li><a href="https://www.medicaid.gov" target="_blank">Medicaid.gov</a> — Medicaid</li>
+            <li><a href="https://www.fns.usda.gov/snap" target="_blank">USDA SNAP</a> — Food assistance</li>
+            <li><a href="https://www.benefits.gov" target="_blank">Benefits.gov</a> — All programs</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>📧 Direct email</h3>
+          <p>You can also reach us directly at:<br><a href="mailto:contact@benefitswiseusa.com">contact@benefitswiseusa.com</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-flag"></div>
+          <span class="logo-text">Benefits<span>Wise</span>USA</span>
+        </a>
+        <p>Helping everyday Americans understand and access the benefits they've earned. Plain English, always free.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Benefits</h4>
+        <a href="#">Medicaid</a>
+        <a href="#">Medicare</a>
+        <a href="#">SNAP / Food Stamps</a>
+        <a href="#">Social Security</a>
+        <a href="#">Unemployment</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="index.html#checker">Eligibility Checker</a>
+        <a href="index.html#states">State Benefits Finder</a>
+        <a href="#">SNAP Estimator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BenefitsWiseUSA.com · All rights reserved</span>
+      <span>Not a government website · For informational purposes only</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit() {
+  const fname = document.getElementById('fname').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+  if (!fname || !email || !message) {
+    alert('Please fill in your name, email, and message before sending.');
+    return;
+  }
+  document.getElementById('successMsg').style.display = 'block';
+  document.querySelector('.btn-submit').disabled = true;
+  document.querySelector('.btn-submit').textContent = 'Message sent ✓';
+  document.querySelector('.btn-submit').style.background = '#1A7A4A';
+  document.querySelector('.btn-submit').style.color = '#fff';
+}
+</script>
+
+</body>
+</html>
