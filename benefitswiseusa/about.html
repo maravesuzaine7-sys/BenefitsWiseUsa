@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — BenefitsWiseUSA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0D2B4E; --navy-mid: #1A4270; --blue: #2563A8;
+    --gold: #C9861A; --gold-light: #F5A623; --cream: #FAFAF7;
+    --white: #FFFFFF; --text: #1A1A2E; --text-mid: #374151;
+    --text-muted: #6B7280; --border: #E4EAF2; --sky: #EBF4FF;
+    --green: #1A7A4A; --green-light: #ECFAF3;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+    --radius: 10px; --radius-lg: 16px;
+  }
+  body { font-family: var(--font-body); color: var(--text); background: var(--cream); line-height: 1.6; font-size: 15px; }
+  nav { background: var(--navy); padding: 0 2rem; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--gold); }
+  .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; height: 60px; justify-content: space-between; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .logo-flag { width: 36px; height: 24px; background: linear-gradient(to bottom, #B22234 0%, #B22234 30%, #fff 30%, #fff 40%, #B22234 40%, #B22234 55%, #fff 55%, #fff 65%, #B22234 65%, #B22234 80%, #fff 80%, #fff 90%, #B22234 90%, #B22234 100%); border-radius: 3px; border: 1px solid rgba(255,255,255,0.3); position: relative; overflow: hidden; }
+  .logo-flag::before { content: ''; position: absolute; top: 0; left: 0; width: 40%; height: 54%; background: #3C3B6E; }
+  .logo-text { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: #fff; }
+  .logo-text span { color: var(--gold-light); }
+  .nav-links { display: flex; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; padding: 0 14px; height: 60px; display: flex; align-items: center; transition: color 0.15s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: var(--gold) !important; color: var(--navy) !important; font-weight: 500 !important; border-radius: var(--radius); padding: 8px 16px !important; height: auto !important; }
+
+  .page-header { background: var(--navy); padding: 56px 2rem; }
+  .page-header-inner { max-width: 780px; margin: 0 auto; }
+  .page-header p { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; }
+  .page-header h1 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
+  .page-header .sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 14px; line-height: 1.7; }
+
+  .content { max-width: 780px; margin: 0 auto; padding: 52px 2rem 80px; }
+
+  .content h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin: 40px 0 12px; padding-top: 40px; border-top: 1px solid var(--border); }
+  .content h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+  .content p { font-size: 15px; color: var(--text-mid); line-height: 1.85; margin-bottom: 15px; }
+  .content ul { margin: 10px 0 16px 20px; }
+  .content ul li { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 8px; }
+  .content a { color: var(--blue); }
+
+  .intro-box {
+    background: var(--navy);
+    border-radius: var(--radius-lg);
+    padding: 32px 36px;
+    margin-bottom: 40px;
+    color: #fff;
+  }
+  .intro-box p { color: rgba(255,255,255,0.8); font-size: 15.5px; line-height: 1.85; margin-bottom: 0; }
+  .intro-box p + p { margin-top: 14px; }
+
+  .value-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0 8px; }
+  .value-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; }
+  .value-item .icon { font-size: 24px; margin-bottom: 10px; display: block; }
+  .value-item h3 { font-size: 14px; font-weight: 500; color: var(--navy); margin-bottom: 6px; }
+  .value-item p { font-size: 13px; color: var(--text-muted); line-height: 1.65; margin: 0; }
+
+  .who-we-help { background: var(--sky); border-radius: var(--radius-lg); padding: 28px 32px; margin: 24px 0; }
+  .who-we-help h3 { font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+  .help-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; list-style: none; margin: 0; }
+  .help-list li { font-size: 13.5px; color: var(--navy-mid); display: flex; align-items: center; gap: 8px; }
+  .help-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+  .disclaimer-box { background: #FFF8E6; border: 1px solid #e8c97a; border-radius: var(--radius-lg); padding: 22px 26px; margin-top: 40px; }
+  .disclaimer-box h3 { font-size: 13.5px; font-weight: 500; color: #6B4200; margin-bottom: 8px; }
+  .disclaimer-box p { font-size: 13px; color: #7A5200; line-height: 1.75; margin: 0; }
+
+  .cta-row { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); font-weight: 500; font-size: 14px; padding: 12px 24px; border-radius: var(--radius); text-decoration: none; display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-body); transition: background 0.15s; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-outline { background: transparent; color: var(--blue); font-weight: 400; font-size: 14px; padding: 12px 22px; border-radius: var(--radius); text-decoration: none; border: 1px solid var(--blue); display: inline-flex; align-items: center; gap: 7px; transition: background 0.15s; }
+  .btn-outline:hover { background: var(--sky); }
+
+  footer { background: var(--navy); padding: 40px 2rem 24px; color: rgba(255,255,255,0.6); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-grid { display: grid; grid-template-columns: 240px repeat(3, 1fr); gap: 48px; margin-bottom: 32px; }
+  .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 14px; color: rgba(255,255,255,0.5); }
+  .footer-col h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.9); font-weight: 500; margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; margin-bottom: 8px; }
+  .footer-col a:hover { color: rgba(255,255,255,0.9); }
+  .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 12px; color: rgba(255,255,255,0.35); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 640px) {
+    .value-row { grid-template-columns: 1fr; }
+    .help-list { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-flag"></div>
+      <span class="logo-text">Benefits<span>Wise</span>USA</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#benefits">Benefits</a></li>
+      <li><a href="index.html#states">By State</a></li>
+      <li><a href="index.html#blog">Guides</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+      <li><a href="index.html#checker" class="nav-cta">Check Eligibility</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <p>About us</p>
+    <h1>Who We Are and Why We Built This</h1>
+    <p class="sub">BenefitsWiseUSA exists for one reason — to make it easier for Americans to find and understand the help that is available to them.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="intro-box">
+    <p>The U.S. government offers dozens of programs to help people pay for food, healthcare, housing, and more. But the rules are written in complicated language, the forms are long, and it is easy to give up before you even get started.</p>
+    <p>We are the BenefitsWiseUSA Team — a small group of independent researchers and writers who believe that access to clear information should not be a barrier to getting help. Everything on this site is free, written in plain English, and verified against official government sources.</p>
+  </div>
+
+  <h2>What we do</h2>
+  <p>We research U.S. government benefit programs and turn the official rules into guides that real people can actually read and use. That means no unnecessary jargon, no confusing legal language — just clear answers to the questions people are actually searching for.</p>
+  <p>Every article on this site starts with the official source — SSA.gov, Medicaid.gov, USDA.gov, HUD.gov, and others. We verify the facts, check the income limits, confirm the application steps, and then write it out in a way that anyone can follow.</p>
+  <p>We update our guides whenever rules change — including the income limit adjustments that happen every year — and we display a "last updated" date on every article so you always know how current the information is.</p>
+
+  <h2>Who this site is for</h2>
+  <p>This site is for any American who needs help navigating the benefits system — regardless of age, background, or situation.</p>
+
+  <div class="who-we-help">
+    <h3>We help people like:</h3>
+    <ul class="help-list">
+      <li>Families struggling to pay for groceries</li>
+      <li>Individuals who lost their job and need income support</li>
+      <li>People with disabilities looking for SSDI or SSI</li>
+      <li>Seniors trying to understand Medicare options</li>
+      <li>Parents looking for health coverage for their children</li>
+      <li>People behind on rent who need emergency assistance</li>
+      <li>Veterans trying to access VA benefits</li>
+      <li>Anyone who was told "no" and wants to understand why</li>
+    </ul>
+  </div>
+
+  <h2>How we keep information accurate</h2>
+  <p>Accuracy is the most important thing we do. Getting benefit information wrong can have real consequences for people who rely on it. Here is how we make sure our guides are trustworthy:</p>
+  <ul>
+    <li><strong>We only use official sources.</strong> Every income limit, eligibility rule, and application step is verified against official .gov websites before we publish.</li>
+    <li><strong>We review guides regularly.</strong> Most benefit programs update their rules every January. We review all major guides at the start of each year and update them right away.</li>
+    <li><strong>We display update dates.</strong> Every article shows when it was last reviewed so you can judge for yourself how current it is.</li>
+    <li><strong>We correct errors quickly.</strong> If you spot something wrong, use our <a href="contact.html">contact page</a> to let us know. We take correction requests seriously and respond promptly.</li>
+  </ul>
+
+  <h2>What we are not</h2>
+  <p>We want to be clear about what this site is and is not, so you know exactly what to expect:</p>
+  <ul>
+    <li>We are <strong>not a government agency</strong> and are not affiliated with any federal or state government body.</li>
+    <li>We <strong>cannot apply for benefits on your behalf</strong> or check the status of your application.</li>
+    <li>We <strong>cannot give you a legal determination</strong> of whether you qualify — only the official agency can do that.</li>
+    <li>We <strong>do not charge any fees</strong>. Applying for government benefits is always free. Be cautious of any service that charges you to apply.</li>
+  </ul>
+  <p>For official help with your application, always go directly to the relevant government agency. We link to official sources at the bottom of every guide.</p>
+
+  <div class="value-row">
+    <div class="value-item">
+      <span class="icon">📖</span>
+      <h3>Plain English</h3>
+      <p>We rewrite government language into simple, clear sentences that anyone can understand.</p>
+    </div>
+    <div class="value-item">
+      <span class="icon">✅</span>
+      <h3>Verified facts</h3>
+      <p>Every guide is sourced from official .gov websites and reviewed for accuracy regularly.</p>
+    </div>
+    <div class="value-item">
+      <span class="icon">💰</span>
+      <h3>Always free</h3>
+      <p>No paywalls, no sign-ups, no fees. This information belongs to everyone.</p>
+    </div>
+    <div class="value-item">
+      <span class="icon">🔒</span>
+      <h3>Your privacy</h3>
+      <p>We do not sell your data. You can use this site completely anonymously.</p>
+    </div>
+  </div>
+
+  <div class="disclaimer-box">
+    <h3>⚠️ Important disclaimer</h3>
+    <p>BenefitsWiseUSA is an independent informational website. We are not affiliated with, endorsed by, or connected to any U.S. federal or state government agency. The information we provide is for general educational purposes only and does not constitute legal or financial advice. Always verify your eligibility and application details directly with the relevant government agency.</p>
+  </div>
+
+  <div class="cta-row">
+    <a href="index.html#checker" class="btn-primary">Check My Eligibility →</a>
+    <a href="contact.html" class="btn-outline">Contact Us</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-flag"></div>
+          <span class="logo-text">Benefits<span>Wise</span>USA</span>
+        </a>
+        <p>Helping everyday Americans understand and access the benefits they've earned. Plain English, always free.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Benefits</h4>
+        <a href="#">Medicaid</a>
+        <a href="#">Medicare</a>
+        <a href="#">SNAP / Food Stamps</a>
+        <a href="#">Social Security</a>
+        <a href="#">Unemployment</a>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <a href="index.html#checker">Eligibility Checker</a>
+        <a href="index.html#states">State Benefits Finder</a>
+        <a href="#">SNAP Estimator</a>
+      </div>
+      <div class="footer-col">
+        <h4>Information</h4>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BenefitsWiseUSA.com · All rights reserved</span>
+      <span>Not a government website · For informational purposes only</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
